@@ -1,9 +1,16 @@
 import React from "react"
+import { useEffect } from "react"
 import { useState } from "react"
 import WeatherForm from "./weatherForm"
 
 const WeatherApp = () => {
   const [weather, setWeather] = useState(null)
+  useEffect(() => {
+    loadInfo()
+  }, [])
+  useEffect(() => {
+    document.title = `Weather|${weather?.location.name ?? ""}`
+  }, [weather])
   async function loadInfo(city = "london") {
     try {
       const request = await fetch(
@@ -19,7 +26,7 @@ const WeatherApp = () => {
 
   function handleChangeCity(city) {
     setWeather(null)
-    loadInfo()
+    loadInfo(city)
   }
   return (
     <div>
