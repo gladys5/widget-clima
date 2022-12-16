@@ -10,7 +10,7 @@ const WeatherApp = () => {
     loadInfo()
   }, [])
   useEffect(() => {
-    document.title = `Weather|${weather?.location.name ?? ""}`
+    document.title = `Weather || ${weather?.location.name ?? ""}`
   }, [weather])
   async function loadInfo(city = "london") {
     try {
@@ -31,6 +31,7 @@ const WeatherApp = () => {
   }
   return (
     <div>
+      <h1>Widget del clima</h1>
       <WeatherForm onChangeCity={handleChangeCity} />
       <WeatherMainInfo weather={weather} />
     </div>

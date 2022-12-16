@@ -8,6 +8,7 @@ const WeatherMainInfo = ({ weather }) => {
       <div>
         <div>
           <img
+            className="img"
             src={`http:${weather?.current.condition.icon}`}
             width="128"
             alt={weather?.current.condition.text}
@@ -15,8 +16,16 @@ const WeatherMainInfo = ({ weather }) => {
         </div>
       </div>
       <div>
-        <div> {weather?.current.condition.text}</div>
-        <div> {weather?.current.temp_c}</div>
+        <div className="content"> {weather?.current.condition.text}</div>
+        <div className="content">
+          {" "}
+          {weather?.current.temp_c} ºC || {weather?.current.temp_f} ºF{" "}
+        </div>
+      </div>
+      <div>
+        <div className="content">Humidity {weather?.current.humidity}</div>
+
+        <div className="content"> {weather?.location.localtime}</div>
       </div>
       <iframe
         title="mapa"
