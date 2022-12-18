@@ -10,9 +10,7 @@ const WeatherApp = () => {
   useEffect(() => {
     loadInfo()
   }, [])
-  if (loadInfo === undefined) {
-    return
-  }
+
   useEffect(() => {
     document.title = `Weather || ${weather?.location.name ?? ""}`
   }, [weather])
